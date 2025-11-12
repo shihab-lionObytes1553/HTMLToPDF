@@ -1,31 +1,5 @@
-FROM python:3.11-slim
-
-# Install system dependencies for Playwright
-RUN apt-get update && apt-get install -y \
-    wget \
-    gnupg \
-    ca-certificates \
-    fonts-liberation \
-    libappindicator3-1 \
-    libasound2 \
-    libatk-bridge2.0-0 \
-    libatk1.0-0 \
-    libcups2 \
-    libdbus-1-3 \
-    libdrm2 \
-    libgbm1 \
-    libgdk-pixbuf2.0-0 \
-    libglib2.0-0 \
-    libgtk-3-0 \
-    libnspr4 \
-    libnss3 \
-    libx11-xcb1 \
-    libxcomposite1 \
-    libxdamage1 \
-    libxfixes3 \
-    libxrandr2 \
-    xdg-utils \
-    && rm -rf /var/lib/apt/lists/*
+# Use Playwright's official Python image which includes all system dependencies
+FROM mcr.microsoft.com/playwright/python:v1.48.0-jammy
 
 # Set working directory
 WORKDIR /app
@@ -33,12 +7,11 @@ WORKDIR /app
 # Copy requirements file
 COPY requirements.txt .
 
-# Install Python dependencies
+# Install Python dependencies (Playwright is already installed in base image)
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install Playwright browsers
+# Chromium is already installed in the base image, but ensure it's up to date
 RUN playwright install chromium
-RUN playwright install-deps chromium
 
 # Copy application files
 COPY server.py .
