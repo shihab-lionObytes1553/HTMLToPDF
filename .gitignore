@@ -11,6 +11,7 @@ pip-log.txt
 pip-delete-this-directory.txt
 .env
 *.log
+Log.log
 .DS_Store
 dist/
 build/
