@@ -42,7 +42,7 @@ DEFAULT_PDF_OPTIONS = {
     "scale": 1.0
 }
 
-MAX_BATCH_SIZE = int(os.getenv("MAX_BATCH_SIZE", "100"))
+MAX_BATCH_SIZE = int(os.getenv("MAX_BATCH_SIZE", "1000"))
 MAX_HTML_SIZE = int(os.getenv("MAX_HTML_SIZE", "10_000_000"))
 CONVERSION_TIMEOUT = int(os.getenv("CONVERSION_TIMEOUT", "60"))
 BROWSER_TIMEOUT = int(os.getenv("BROWSER_TIMEOUT", "30"))

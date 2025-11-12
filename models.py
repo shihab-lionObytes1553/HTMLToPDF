@@ -37,9 +37,5 @@ class BatchHTMLRequest(BaseModel):
         for i, html in enumerate(v):
             if not html or not html.strip():
                 raise ValueError(f"HTML content at index {i} is empty")
-            if len(html.encode('utf-8')) > MAX_HTML_SIZE:
-                raise ValueError(
-                    f"HTML content at index {i} exceeds maximum size of {MAX_HTML_SIZE} bytes"
-                )
         return v
 

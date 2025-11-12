@@ -6,5 +6,16 @@ README.md
 .env
 *.pdf
 .DS_Store
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+ENV/
+.venv
+*.log
+Log.log
 
 
